@@ -1,5 +1,5 @@
 <?php
-  print "Hello, World!. I am running on host " . gethostname() ." (" . $_SERVER['SERVER_ADDR'] . ")" . "\n";
+  print "Hello, World! I am running on host " . gethostname() ." (" . $_SERVER['SERVER_ADDR'] . ")" . "\n";
   echo "<br/><br/>";
   print "This app was built with php " . PHP_VERSION . "\n";
   echo "<br/><br/>";
