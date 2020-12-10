@@ -22,13 +22,14 @@ objects:
     source:
       contextDir: ${CONTEXT}
       git:
+        ref: ${BRANCH}
         uri: ${SCM}
       type: Git
     strategy:
       sourceStrategy:
         from:
           kind: ImageStreamTag
-          name: php:7.0
+          name: php:latest
           namespace: openshift
       type: Source
     successfulBuildsHistoryLimit: 5
@@ -201,12 +202,17 @@ parameters:
   displayName: Source Code Repository
   name: SCM
   required: true
-  value: https://github.com/rgdacosta/DO288-apps
+  value: https://gitlab.com/rgdacosta/ocp-apps.git
 - description: The context directory inside of the source code repository where the code is found 
   displayName: Context Directory
   name: CONTEXT
   required: true
   value: php-detail
+- description: SCM Branch
+  displayName: SCM Branch
+  name: BRANCH
+  required: true
+  value: master
 - description: Trigger secret.
   displayName: Trigger Secret
   from: '[a-zA-Z0-9]{40}'
