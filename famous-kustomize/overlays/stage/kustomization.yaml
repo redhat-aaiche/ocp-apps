@@ -1,4 +1,4 @@
 bases:
 - ../../base
 patches:
-- pull_policy.yaml 
+- replica_limits.yaml 
