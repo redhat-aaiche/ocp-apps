@@ -1,0 +1,9 @@
+spec:
+  template:
+    spec:
+      volumes:
+      - name: db-volume
+        persistentVolumeClaim:
+        claimName: prod-mysql-pv-claim
+---
+
