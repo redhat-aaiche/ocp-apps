@@ -1,3 +1,8 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
 spec:
   template:
     spec:
@@ -5,5 +10,3 @@ spec:
       - name: db-volume
         persistentVolumeClaim:
         claimName: dev-mysql-pv-claim
----
-
