@@ -2,7 +2,7 @@ services:
 
   wiremock:
     container_name: "quotes-provider"
-    image: "quay.io/rdacosta/wiremock"
+    image: "quay.io/rdacosta/wiremock:latest"
     volumes:
       - ~/ocp-apps/compose/wiremock/stubs:/home/wiremock:Z
     networks:
@@ -10,7 +10,7 @@ services:
 
   quotes-api:
     container_name: "quotes-api"
-    image: "quay.io/rdacosta/podman-quotesapi-compose"
+    image: "quay.io/rdacosta/quotes-api:latest"
     ports:
       - "8080:8080"
     networks:
@@ -20,9 +20,9 @@ services:
 
   quotes-ui:
     container_name: "quotes-ui"
-    image: "quay.io/rdacosta/podman-quotes-ui"
+    image: "quay.io/rdacosta/quotes-ui:latest"
     ports:
       - "3000:8080"
 
 networks:
-  lab-net: {}
+  app-net: {}
