@@ -8,6 +8,16 @@
   print "The value of the variable MY_PASSWORD is " .$_ENV["MY_PASSWORD"] . "\n";
   echo "<br/><br/>";
 
+  if (file_exists('/my_mount/id_rsa.pub')) {
+    echo "/my_mount/id_rsa.pub contains: ";
+    echo "<br/><br/>";
+    echo nl2br(file_get_contents( "/my_mount/id_rsa.pub" ));
+   } else {
+    echo "Nothing was found at /my_mount/id_rsa.pub";
+    }
+
+  echo "<br/><br/>";
+
   if (file_exists('/my_secret/id_rsa')) {
     echo "/my_secret/id_rsa contains: ";
     echo "<br/><br/>";
@@ -16,13 +26,4 @@
     echo "Nothing was found at /my_secret/id_rsa.";
     }
 
-  echo "<br/><br/>";
-
-  if (file_exists('/my_mount/id_rsa.pub')) {
-    echo "/my_mount/id_rsa.pub contains: ";
-    echo "<br/><br/>";
-    echo nl2br(file_get_contents( "/my_mount/id_rsa.pub" ));
-   } else {
-    echo "Nothing was found at /my_mount/id_rsa.pub";
-    }
 ?>
