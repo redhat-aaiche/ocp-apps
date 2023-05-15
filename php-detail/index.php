@@ -25,5 +25,4 @@
    } else {
     echo "Nothing was found at /my_secret/id_rsa.";
     }
-
 ?>
