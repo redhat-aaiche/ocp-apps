@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  coffee-shop:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-06-22T18:08:35.733009+02:00"
+    description: A Helm chart for Kubernetes
+    digest: b2469f157cd462986800c07e28ab86d9d51a825d19fccb65941b44c19f8289b2
+    name: coffee-shop
+    type: application
+    urls:
+    - https://gitlab.com/rgdacosta/ocp-apps/-/raw/master/coffee-shop-chart/coffee-shop.tgz
+    version: 0.1.0
+generated: "2023-06-22T18:08:35.730847+02:00"
