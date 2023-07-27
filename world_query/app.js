@@ -33,7 +33,23 @@ app.get('/city', (req, res) => {
   });
 });
 
+// Set up a route to query the Country table
+app.get('/country', (req, res) => {
+  const countryName = req.query.name;
+  
+  if(!countryName){
+    return res.status(400).send('Missing country name in query parameters.');
+  }
+  
+  const sql = 'SELECT * FROM Country WHERE LOWER(Name) = LOWER(?)';
+  connection.query(sql, [countryName], (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});
+
 // Start the server
 app.listen(port, () => {
-  console.log(`App listening
+  console.log(`App listening at http://localhost:${port}`);
+});
 

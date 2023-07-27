@@ -1,0 +1,30 @@
+services:
+
+  database:
+    container_name: world_db
+    image: quay.io/rdacosta/mysql-57-rhel7:latest
+    environment:
+      MYSQL_DATABASE: world
+      MYSQL_USER: ricardo
+      MYSQL_PASSWORD: redhat123
+      MYSQL_ROOT_PASSWORD: redhat321
+    ports:
+      - 3306:3306
+    volumes:
+      - ~/ocp-apps/compose-world/world_db/:/var/lib/mysql/data:Z
+    networks:
+      - app-net
+
+  query:
+    container_name: world_query 
+    image: world_query
+    ports:
+      - 3000:3000
+    environment:
+      WORLD_HOST: world_db
+      WORLD_DATABASE: world
+      WORLD_USER: ricardo
+      WORLD_PASSWORD: redhat123
+
+networks:
+  app-net: {}

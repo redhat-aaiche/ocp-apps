@@ -1,0 +1,9 @@
+FROM rhel8/nodejs-16
+
+COPY . .
+
+USER 1001
+
+RUN npm install
+
+ENTRYPOINT node app.js
