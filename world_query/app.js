@@ -6,10 +6,10 @@ const port = 3000;
 
 // Create a MySQL connection
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'ricardo',
-  password: 'redhat123',
-  database: 'world'
+  host: process.env.WORLD_HOST,
+  user: process.env.WORLD_USER,
+  password: process.env.WORLD_PASSWORD,
+  database: process.env.WORLD_DATABASE
 });
 
 // Connect to the MySQL server
@@ -35,6 +35,5 @@ app.get('/city', (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`);
-});
+  console.log(`App listening
 
