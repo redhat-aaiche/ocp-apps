@@ -2,6 +2,8 @@ services:
 
   database:
     container_name: world_db
+    options:
+      --rm: true
     image: quay.io/rdacosta/mysql-57-rhel7:latest
     environment:
       MYSQL_DATABASE: world
@@ -17,6 +19,10 @@ services:
 
   query:
     container_name: world_query 
+    options:
+      --rm: true
+    depends_on:
+      - world_db
     image: world_query
     ports:
       - 3000:3000
