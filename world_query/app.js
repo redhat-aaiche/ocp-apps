@@ -26,7 +26,7 @@ app.get('/city', (req, res) => {
     return res.status(400).send('Missing city name in query parameters.');
   }
   
-  const sql = 'SELECT ID, Name, CountryCode, District, Population FROM City WHERE LOWER(Name) = LOWER(?)';
+  const sql = 'SELECT * FROM City WHERE LOWER(Name) = LOWER(?)';
   connection.query(sql, [cityName], (err, result) => {
     if (err) throw err;
     res.send(result);
@@ -52,4 +52,3 @@ app.get('/country', (req, res) => {
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
-
