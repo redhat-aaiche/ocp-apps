@@ -23,7 +23,7 @@ services:
       --rm: true
     depends_on:
       - world_db
-    image: world_query
+    image: quay.io/rdacosta/world_query:latest
     ports:
       - 3000:3000
     environment:
