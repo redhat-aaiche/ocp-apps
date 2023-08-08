@@ -13,7 +13,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ~/ocp-apps/compose-world/world_db/:/var/lib/mysql/data:Z
+      - ~/git/ocp-apps/compose-world/world_db/:/var/lib/mysql/data:Z
     networks:
       - app-net
 
