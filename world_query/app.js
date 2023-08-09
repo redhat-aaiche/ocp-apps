@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-// Create a MySQL connection
 const connection = mysql.createConnection({
   host: process.env.WORLD_HOST,
   user: process.env.WORLD_USER,
@@ -12,13 +11,11 @@ const connection = mysql.createConnection({
   database: process.env.WORLD_DATABASE
 });
 
-// Connect to the MySQL server
 connection.connect((err) => {
   if (err) throw err;
   console.log('Connected!');
 });
 
-// Set up a route to query the City table
 app.get('/city', (req, res) => {
   const cityName = req.query.name;
   
@@ -48,7 +45,6 @@ app.get('/country', (req, res) => {
   });
 });
 
-// Start the server
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
