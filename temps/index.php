@@ -1,6 +1,6 @@
 <html>
 <head>
-      <title>Temperature converter</title>
+      <title>Temperature converter C2F and F2C</title>
       <meta charset="utf-8">
 </head>
 <body>
