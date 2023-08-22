@@ -19,7 +19,7 @@ public class ServerHostEndPoint {
     catch (Exception e) {
        e.printStackTrace();
     }
-    String msg = "Hello to everyone in Texas, USA. I am running on server "+host+" Version 3.0 \n";
+    String msg = "Hello to everyone in Texas, USA. I am running on server "+host+" Version 3.0 in South Africa \n";
     return Response.ok(msg).build();
   }
 }
