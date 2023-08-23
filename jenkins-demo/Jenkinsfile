@@ -1,6 +1,5 @@
 pipeline {
     options {
-        // set a timeout of 60 minutes for this pipeline
         timeout(time: 60, unit: 'MINUTES')
     }
     agent {
@@ -10,12 +9,11 @@ pipeline {
     }
 
     environment {
-        DEV_PROJECT = "youruser-books-dev"
-        STAGE_PROJECT = "youruser-books-stage"
-        APP_GIT_URL = "https://github.com/youruser/DO288-apps"
-        NEXUS_SERVER = "http://nexus-common.apps.cluster.domain.example.com/repository/nodejs"
-
-        // DO NOT CHANGE THE GLOBAL VARS BELOW THIS LINE
+	USER = "rgdacosta"
+        DEV_PROJECT = "${USER}-books-dev"
+        STAGE_PROJECT = "${USER}-books-stage"
+        APP_GIT_URL = "https://gitlab.com/rgdacosta/ocp-apps"
+        NEXUS_SERVER = "http://nexus-common.apps.na410.ocp4.example.com/repository/nodejs"
         APP_NAME = "books"
     }
 
