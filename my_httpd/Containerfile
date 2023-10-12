@@ -10,8 +10,6 @@ RUN dnf install -y httpd && \
     chgrp -R 0 /var/log/httpd /var/run/httpd && \
     chmod -R g=u /var/log/httpd /var/run/httpd
 
-VOLUME /var/www/html
-
 WORKDIR /var/www/html
 
 COPY index.html .
