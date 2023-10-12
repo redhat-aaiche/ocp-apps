@@ -1,21 +1,27 @@
-FROM registry.access.redhat.com/ubi8/ubi:latest
+FROM registry.access.redhat.com/ubi9/ubi:latest
 
-RUN yum install -y httpd && \
-    yum clean all && \
-    sed -i -e 's/^Listen 80/Listen 8080/g' /etc/httpd/conf/httpd.conf && \
+ARG HTTP_PORT=8080
+
+ENV APP_PORT=8080
+
+RUN dnf install -y httpd && \
+    dnf clean all && \
+    sed -i -e 's/^Listen 80/Listen ${HTTP_PORT}/g' /etc/httpd/conf/httpd.conf && \
     chgrp -R 0 /var/log/httpd /var/run/httpd && \
     chmod -R g=u /var/log/httpd /var/run/httpd
 
-VOLUME /var/www/html/
+VOLUME /var/www/html
 
-COPY index.html /var/www/html/
+WORKDIR /var/www/html
+
+COPY index.html .
 
 LABEL description="My httpd container application" \
       io.k8s.description="My httpd container application" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="httpd, web server, apache, apache2"
 
-EXPOSE 8080
+EXPOSE ${APP_PORT}
 
 USER 1001
 
