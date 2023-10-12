@@ -1,4 +1,4 @@
-FROM rhel8/nodejs-16
+FROM rhel8/nodejs-16-minimal
 
 COPY . .
 
