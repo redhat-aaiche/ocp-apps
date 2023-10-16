@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: build-and-deploy
+spec:
+  workspaces:
+    - name: source
+  tasks:
+    - name: build
+      taskRef:
+        name: s2i-nodejs
+      workspaces:
+        - name: source
+          workspace: source
+    - name: deploy
+      runAfter:
+        - build
+      taskRef:
+        name: openshift-client
+      params:
+        - name: ARGS
+          value:
+            - rollout
+            - latest
+            - nodejs-app
