@@ -1,5 +1,5 @@
 {
-    "name": "hello-world-app,
+    "name": "hello-world-app",
     "version": "1.0.0",
     "description": "Hello world app with variable to greet viewer",
     "main": "app.js",
