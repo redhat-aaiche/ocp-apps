@@ -5,7 +5,7 @@ body {
   
   .segment {
     height: 20vh;
-    background-image: url('../images/tiles.jpg');
+    background-image: url('/opt/app-root/src/images/tiles.jpg');
   }
   
   .middle-segment {

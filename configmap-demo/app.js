@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
 app.use(express.static('public'));
 
@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
   res.send(`
     <html>
       <head>
-        <title>NodeJS App</title>
+        <title>Hello world</title>
         <link rel="stylesheet" type="text/css" href="/style.css">
       </head>
       <body>
