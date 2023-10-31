@@ -8,6 +8,7 @@ RUN dnf install -y httpd && \
     dnf clean all && \
     rm -rf /var/cache/dnf/* && \
     sed -i -e "s/^Listen 80/Listen ${APP_PORT}/g" /etc/httpd/conf/httpd.conf && \
+    sed -i -e "s/^#ServerName.*/ServerName localhost/g" /etc/httpd/conf/httpd.conf && \
     chgrp -R 0 /var/log/httpd /var/run/httpd && \
     chmod -R g=u /var/log/httpd /var/run/httpd
 
