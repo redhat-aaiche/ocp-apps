@@ -1,1 +1,2 @@
 compose-world/world_db/*
+!compose-world/world_db/
