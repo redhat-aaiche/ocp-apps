@@ -1,3 +1,4 @@
+version: '3.8'
 services:
 
   database:
@@ -17,12 +18,31 @@ services:
     networks:
       - app-net
 
+  db_init:
+    container_name: db_init
+    image: quay.io/rdacosta/mysql-57-rhel7:latest
+    volumes:
+      - ~/ocp-apps/world-sql-db/world.sql:/docker-entrypoint-initdb.d/world.sql:Z
+    depends_on:
+      - world_db
+    environment:
+      MYSQL_DATABASE: world
+      MYSQL_USER: ricardo
+      MYSQL_PASSWORD: redhat123
+      MYSQL_ROOT_PASSWORD: redhat321
+    command: ["sh", "-c", "mysql -hworld_db -u$$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE < /docker-entrypoint-initdb.d/world.sql"]
+    networks:
+      - app-net
+  
   query:
-    container_name: world_query 
+    container_name: world_query
     options:
       --rm: true
     depends_on:
-      - world_db 
+      database:
+        condition: service_started
+      db_init:
+        condition: service_completed_successfully
     image: quay.io/rdacosta/world_query:latest
     ports:
       - 3000:3000
@@ -36,3 +56,4 @@ services:
 
 networks:
   app-net: {}
+
