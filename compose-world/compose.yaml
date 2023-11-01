@@ -22,7 +22,7 @@ services:
     container_name: db_init
     image: quay.io/rdacosta/mysql-57-rhel7:latest
     volumes:
-      - ~/ocp-apps/world-sql-db/world.sql:/docker-entrypoint-initdb.d/world.sql:Z
+      - ~/ocp-apps/world-sql-db/world.sql:/var/tmp/world.sql:Z
     depends_on:
       - world_db
     environment:
@@ -30,7 +30,7 @@ services:
       MYSQL_USER: ricardo
       MYSQL_PASSWORD: redhat123
       MYSQL_ROOT_PASSWORD: redhat321
-    command: ["sh", "-c", "mysql -hworld_db -u$$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE < /docker-entrypoint-initdb.d/world.sql"]
+    command: ["sh", "-c", "mysql -hworld_db -u$$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE < /var/tmp/world.sql"]
     networks:
       - app-net
   

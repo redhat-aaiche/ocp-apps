@@ -15,11 +15,12 @@ app.get("/snacks", (req, res) => {
   const available_snacks = ["apple", "cheese", "cracker", "lunchmeat", "olive"];
   for (const snack of available_snacks) {
     if (snack === search) {
-      res.send(`sorry, we don't have any ${search}s :(\n`);
+      res.send(`yes, we have ${search}s!\n`);
       return;
     }
   }
-  res.send(`yes, we have ${search}s!\n`);
+  
+  res.send(`sorry, we don't have any ${search}s :(\n`);
 });
 
 app.listen(PORT_NUMBER, "0.0.0.0", () => {

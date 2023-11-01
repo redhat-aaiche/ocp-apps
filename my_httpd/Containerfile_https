@@ -8,7 +8,7 @@ ENV HTTPS_PORT=8443
 RUN dnf install -y httpd mod_ssl openssl && \
     dnf clean all && \
     rm -rf /var/cache/dnf/* && \
-    openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+    openssl req -x509 -nodes -days 3650 -newkey rsa:2048 \
     -keyout /etc/pki/tls/private/localhost.key \
     -out /etc/pki/tls/certs/localhost.crt \
     -subj "/C=US/ST=NC/L=Raleigh/O=RedHat/OU=Training/CN=localhost" && \
