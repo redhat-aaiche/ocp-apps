@@ -22,7 +22,7 @@ services:
     options:
       --rm: true
     depends_on:
-      - world_db
+      - world_db 
     image: quay.io/rdacosta/world_query:latest
     ports:
       - 3000:3000
@@ -31,6 +31,8 @@ services:
       WORLD_DATABASE: world
       WORLD_USER: ricardo
       WORLD_PASSWORD: redhat123
+    networks:
+      - app-net
 
 networks:
   app-net: {}
