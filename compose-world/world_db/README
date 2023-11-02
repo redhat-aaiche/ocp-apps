@@ -1,0 +1,3 @@
+Run the following command in this directory:
+
+podman unshare chown -R 27:27 .
