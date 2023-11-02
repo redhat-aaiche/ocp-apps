@@ -3,9 +3,9 @@
   echo "<br/><br/>";
   print "This app was built with php " . PHP_VERSION . "\n";
   echo "<br/><br/>";
-  print "The value of the variable MY_STRING is " .$_ENV["MY_STRING"] . "\n";
+  print "The value of the variable MY_STRING is " .getenv('MY_STRING')  . "\n";
   echo "<br/><br/>";
-  print "The value of the variable MY_PASSWORD is " .$_ENV["MY_PASSWORD"] . "\n";
+  print "The value of the variable MY_PASSWORD is " .getenv('MY_PASSWORD') . "\n";
   echo "<br/><br/>";
 
   if (file_exists('/my_secret/id_rsa')) {
