@@ -54,7 +54,6 @@ metadata:
     app.openshift.io/runtime: python
     odo.dev/mode: Deploy
   name: weather
-  namespace: odo-deploy-cli
 spec:
   host: weather-odo-deploy-cli.apps.ocp4.example.com
   port:
