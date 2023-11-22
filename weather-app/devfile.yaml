@@ -16,8 +16,8 @@ components:
     dockerfile:
       buildContext: .
       rootRequired: false
-      uri: docker/Dockerfile
-    imageName: registry.ocp4.example.com:8443/redhattraining/openshift-dev-deploy-cli-weather:1.0
+      uri: podman/Containerfile
+    imageName: quay.io/rdacosta/weather:latest
   name: build
 
 - kubernetes:
