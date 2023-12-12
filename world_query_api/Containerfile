@@ -1,4 +1,4 @@
-FROM rhel8/nodejs-16-minimal
+FROM registry.redhat.io/rhel8/nodejs-16-minimal:latest
 
 COPY . .
 
