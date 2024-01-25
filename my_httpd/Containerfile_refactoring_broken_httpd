@@ -1,7 +1,7 @@
 FROM quay.io/rdacosta/my_httpd:broken
 
-RUN chown -R 0 /etc/httpd/logs/ /var/run/httpd/ && \
-    chmod -R g=u /etc/httpd/logs/ /var/run/httpd/ && \
+RUN chown -R 0 /var/log/httpd/ /var/run/httpd/ && \
+    chmod -R g=u /var/log/httpd/ /var/run/httpd/ && \
     sed -i -e 's/^Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
 
 
